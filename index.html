@@ -1,1 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>対戦表</title>
+  <style>
+    .matchup-table {
+      display: none;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+    .matchup-table th, .matchup-table td {
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+    .visible {
+      display: table;
+    }
+  </style>
+</head>
+<body>
+  <h1>対戦表</h1>
+
+  <label for="roundSelector">回戦を選択:</label>
+  <select id="roundSelector">
+    <option value="round1">第1回戦</option>
+    <option value="round2">第2回戦</option>
+    <option value="round3">第3回戦</option>
+  </select>
+
+  <!-- 第1回戦の対戦表 -->
 <table border=2 cellspacing=1 cellpadding=0 bgcolor="#FFFFFF" bordercolor="#000000" align=center height = "25" style="color:#000000"><tr bgcolor="#cccccc" align=center><th  width = "45"><b>試合No.</th><th width = "40"><b>NoA</b></th><th width = "200"><b>プレーヤーA</b></th><th width = "40"><b>NoB</b></th><th width = "200"><b>プレーヤーB</b></th><tr align=center height = "20"><td>1</td><td>5</td><td>ナベリアン</td><td>21</td><td>cloudia</td></tr><tr bgcolor="#e6e6e6" align=center height = "20"><td>2</td><td>17</td><td>しゅん</td><td>35</td><td>トウマ</td></tr><tr align=center height = "20"><td>3</td><td>30</td><td>たけぴー</td><td>33</td><td>ケンピース</td></tr><tr bgcolor="#e6e6e6" align=center height = "20"><td>4</td><td>31</td><td>ゲンガーン</td><td>8</td><td>亡霊</td></tr><tr align=center height = "20"><td>5</td><td>12</td><td>トゥりりり</td><td>16</td><td>PKマスタ</td></tr><tr bgcolor="#e6e6e6" align=center height = "20"><td>6</td><td>22</td><td>neos</td><td>1</td><td>ビーン</td></tr><tr align=center height = "20"><td>7</td><td>6</td><td>おっさん</td><td>7</td><td>ぺやんぐ</td></tr><tr bgcolor="#e6e6e6" align=center height = "20"><td>8</td><td>29</td><td>しろ</td><td>34</td><td>しまぽけ</td></tr><tr align=center height = "20"><td>9</td><td>20</td><td>SD</td><td>28</td><td>ホライズン</td></tr><tr bgcolor="#e6e6e6" align=center height = "20"><td>10</td><td>19</td><td>トマテ</td><td>13</td><td>ヤマダ</td></tr><tr align=center height = "20"><td>11</td><td>23</td><td>たわし</td><td>18</td><td>めーぜん</td></tr><tr bgcolor="#e6e6e6" align=center height = "20"><td>12</td><td>32</td><td>茄子ノ湯</td><td>27</td><td>ざりがに</td></tr><tr align=center height = "20"><td>13</td><td>10</td><td>Nefi</td><td>36</td><td>紅音水希</td></tr><tr bgcolor="#e6e6e6" align=center height = "20"><td>14</td><td>11</td><td>あゆかぜ</td><td>9</td><td>るーしー</td></tr><tr align=center height = "20"><td>15</td><td>24</td><td>えりす</td><td>3</td><td>あばうと</td></tr><tr bgcolor="#e6e6e6" align=center height = "20"><td>16</td><td>14</td><td>fc</td><td>15</td><td>yasu</td></tr><tr align=center height = "20"><td>17</td><td>2</td><td>あのりす</td><td>25</td><td>なすお</td></tr><tr bgcolor="#e6e6e6" align=center height = "20"><td>18</td><td>4</td><td>コバきゅうり</td><td>26</td><td>なみさん</td></tr></table>
+
+  <!-- 第2回戦の対戦表 -->
+  <table id="round2" class="matchup-table">
+    <thead>
+      <tr><th>プレイヤーA</th><th>プレイヤーB</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>田中</td><td>鈴木</td></tr>
+      <tr><td>佐藤</td><td>高橋</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 第3回戦の対戦表 -->
+  <table id="round3" class="matchup-table">
+    <thead>
+      <tr><th>プレイヤーA</th><th>プレイヤーB</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>田中</td><td>高橋</td></tr>
+      <tr><td>佐藤</td><td>鈴木</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    const selector = document.getElementById('roundSelector');
+    const tables = document.querySelectorAll('.matchup-table');
+
+    selector.addEventListener('change', () => {
+      const selected = selector.value;
+      tables.forEach(table => {
+        if (table.id === selected) {
+          table.classList.add('visible');
+        } else {
+          table.classList.remove('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
